@@ -2,7 +2,7 @@ import axios from "axios";
 import md5 from 'crypto-js/md5'
 
 
-const API_URL = '//api.valantis.store:40000/'
+const API_URL = 'https://api.valantis.store:41000/'
 const PASSWORD = 'Valantis';
 
 const generateAuthHeader = () => {
@@ -10,6 +10,7 @@ const generateAuthHeader = () => {
 	const authString = md5(`${PASSWORD}_${timestamp}`).toString();
 	return { 'X-Auth': authString };
 }
+
 
 export const apiRequest = async (action: string, params: Record<string, any> = {}) => {
 	try {
